@@ -51,23 +51,14 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ぷらすだよ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nT-v1-fh7">
-                                <rect key="frame" x="24" y="185.5" width="327" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="z10-xo-7fW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="38F-JL-qpR"/>
                             <constraint firstItem="w1m-oK-d5a" firstAttribute="top" secondItem="jBe-HS-GNM" secondAttribute="bottom" constant="46" id="4hU-rc-NH7"/>
                             <constraint firstItem="z10-xo-7fW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6AE-5Q-nk1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8nT-v1-fh7" secondAttribute="trailing" constant="24" id="Gbx-nW-iAL"/>
-                            <constraint firstItem="jBe-HS-GNM" firstAttribute="top" secondItem="8nT-v1-fh7" secondAttribute="bottom" constant="24" id="W1D-5V-onO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jBe-HS-GNM" secondAttribute="trailing" constant="24" id="Xrr-IJ-2Ok"/>
                             <constraint firstItem="jBe-HS-GNM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Y7G-dr-h2r"/>
-                            <constraint firstItem="8nT-v1-fh7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="ex9-mr-Au3"/>
                             <constraint firstItem="w1m-oK-d5a" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="j89-CZ-Z0Q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w1m-oK-d5a" secondAttribute="trailing" constant="46" id="oFP-GS-FAS"/>
                         </constraints>
@@ -75,7 +66,6 @@
                     </view>
                     <connections>
                         <outlet property="countLabel" destination="jBe-HS-GNM" id="4UX-Vc-xdm"/>
-                        <outlet property="messageLabel" destination="8nT-v1-fh7" id="b5W-wJ-9Ze"/>
                         <outlet property="minusButton" destination="z10-xo-7fW" id="erX-dt-TjB"/>
                         <outlet property="plusButton" destination="w1m-oK-d5a" id="x8r-ts-TQR"/>
                     </connections>

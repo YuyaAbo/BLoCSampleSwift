@@ -12,21 +12,20 @@ import RxCocoa
 
 final class ViewController: UIViewController {
 
-    @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var countLabel: UILabel!
     @IBOutlet private weak var minusButton: UIButton!
     @IBOutlet private weak var plusButton: UIButton!
 
     private let bag = DisposeBag()
-    private let counterBloc = CounterBloc()
+    private let counterBloc = CounterBloc(repository: CounterRepository())
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        counterBloc.message.bind(to: messageLabel.rx.text)
+        counterBloc.count.bind(to: countLabel.rx.text)
             .disposed(by: bag)
 
-        counterBloc.count.bind(to: countLabel.rx.text)
+        counterBloc.isMinusEnabled.bind(to: minusButton.rx.isEnabled)
             .disposed(by: bag)
 
         minusButton.rx.tap.subscribe(onNext: { [weak self] (_) in

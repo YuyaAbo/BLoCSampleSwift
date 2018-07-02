@@ -9,18 +9,27 @@
 import Foundation
 import RxSwift
 
+protocol CounterRepositoryType {
+    func fetchCount() -> Int
+}
+
+final class CounterRepository: CounterRepositoryType {
+    func fetchCount() -> Int {
+        return 5
+    }
+}
+
 final class CounterBloc {
 
     private let bag = DisposeBag()
 
-    private var _count = BehaviorSubject<Int>(value: 0)
+    private var _count: BehaviorSubject<Int>
     var count: Observable<String> {
         return _count.asObservable()
             .map { "\($0)" }
     }
-    var message: Observable<String> {
-        return _count.asObservable()
-            .map { 0 <= $0 ? "ぷらすだよ" : "まいなすだよ" }
+    var isMinusEnabled: Observable<Bool> {
+        return _count.map { 0 < $0 }
     }
 
     enum Arithmetic { case plus, minus }
@@ -29,7 +38,8 @@ final class CounterBloc {
         return _calc
     }
 
-    init() {
+    init(repository: CounterRepositoryType) {
+        _count = BehaviorSubject<Int>(value: repository.fetchCount())
         _calc.subscribe(onNext: { [unowned self] (arithmetic: Arithmetic) in
             let currentCount: Int = try! self._count.value()
             switch arithmetic {

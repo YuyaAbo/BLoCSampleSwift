@@ -23,11 +23,7 @@ final class CounterBloc {
             .map { 0 <= $0 ? "ぷらすだよ" : "まいなすだよ" }
     }
 
-    enum Arithmetic {
-        case plus
-        case minus
-    }
-
+    enum Arithmetic { case plus, minus }
     private var _calc = PublishSubject<Arithmetic>()
     var calc: PublishSubject<Arithmetic> {
         return _calc

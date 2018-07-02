@@ -15,6 +15,7 @@
 		14714EA220E9F76900CEBE90 /* BLoCSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14714EA120E9F76900CEBE90 /* BLoCSampleTests.swift */; };
 		14714EAF20E9F93900CEBE90 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14714EAD20E9F93900CEBE90 /* RxCocoa.framework */; };
 		14714EB020E9F93900CEBE90 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14714EAE20E9F93900CEBE90 /* RxSwift.framework */; };
+		14714EB320E9FAA700CEBE90 /* CounterBloc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14714EB220E9FAA700CEBE90 /* CounterBloc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		14714EA320E9F76900CEBE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14714EAD20E9F93900CEBE90 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		14714EAE20E9F93900CEBE90 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		14714EB220E9FAA700CEBE90 /* CounterBloc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterBloc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				14714E8C20E9F76700CEBE90 /* AppDelegate.swift */,
 				14714E8E20E9F76700CEBE90 /* ViewController.swift */,
+				14714EB220E9FAA700CEBE90 /* CounterBloc.swift */,
 				14714E9020E9F76700CEBE90 /* Main.storyboard */,
 				14714E9320E9F76900CEBE90 /* Assets.xcassets */,
 				14714E9520E9F76900CEBE90 /* LaunchScreen.storyboard */,
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14714E8F20E9F76700CEBE90 /* ViewController.swift in Sources */,
+				14714EB320E9FAA700CEBE90 /* CounterBloc.swift in Sources */,
 				14714E8D20E9F76700CEBE90 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

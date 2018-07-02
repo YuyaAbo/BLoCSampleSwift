@@ -10,18 +10,33 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+
+    @IBOutlet private weak var messageLabel: UILabel!
+    @IBOutlet private weak var countLabel: UILabel!
+    @IBOutlet private weak var minusButton: UIButton!
+    @IBOutlet private weak var plusButton: UIButton!
+
+    private let bag = DisposeBag()
+    private let counterBloc = CounterBloc()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+        counterBloc.message.bind(to: messageLabel.rx.text)
+            .disposed(by: bag)
 
+        counterBloc.count.bind(to: countLabel.rx.text)
+            .disposed(by: bag)
+
+        minusButton.rx.tap.subscribe(onNext: { [weak self] (_) in
+            self?.counterBloc.calc.onNext(.minus)
+        }).disposed(by: bag)
+
+        plusButton.rx.tap.subscribe(onNext: { [weak self] (_) in
+            self?.counterBloc.calc.onNext(.plus)
+        }).disposed(by: bag)
+    }
 
 }
 

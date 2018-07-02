@@ -13,6 +13,8 @@
 		14714E9420E9F76900CEBE90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14714E9320E9F76900CEBE90 /* Assets.xcassets */; };
 		14714E9720E9F76900CEBE90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14714E9520E9F76900CEBE90 /* LaunchScreen.storyboard */; };
 		14714EA220E9F76900CEBE90 /* BLoCSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14714EA120E9F76900CEBE90 /* BLoCSampleTests.swift */; };
+		14714EAF20E9F93900CEBE90 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14714EAD20E9F93900CEBE90 /* RxCocoa.framework */; };
+		14714EB020E9F93900CEBE90 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14714EAE20E9F93900CEBE90 /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		14714E9D20E9F76900CEBE90 /* BLoCSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLoCSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14714EA120E9F76900CEBE90 /* BLoCSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLoCSampleTests.swift; sourceTree = "<group>"; };
 		14714EA320E9F76900CEBE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14714EAD20E9F93900CEBE90 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		14714EAE20E9F93900CEBE90 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14714EAF20E9F93900CEBE90 /* RxCocoa.framework in Frameworks */,
+				14714EB020E9F93900CEBE90 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +68,7 @@
 				14714E8B20E9F76700CEBE90 /* BLoCSample */,
 				14714EA020E9F76900CEBE90 /* BLoCSampleTests */,
 				14714E8A20E9F76700CEBE90 /* Products */,
+				14714EAC20E9F93900CEBE90 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +103,15 @@
 			path = BLoCSampleTests;
 			sourceTree = "<group>";
 		};
+		14714EAC20E9F93900CEBE90 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14714EAD20E9F93900CEBE90 /* RxCocoa.framework */,
+				14714EAE20E9F93900CEBE90 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +122,7 @@
 				14714E8520E9F76700CEBE90 /* Sources */,
 				14714E8620E9F76700CEBE90 /* Frameworks */,
 				14714E8720E9F76700CEBE90 /* Resources */,
+				14714EB120E9F94E00CEBE90 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -191,6 +208,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14714EB120E9F94E00CEBE90 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		14714E8520E9F76700CEBE90 /* Sources */ = {
@@ -358,16 +395,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BLoCSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aboy.BLoCSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -375,16 +419,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BLoCSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aboy.BLoCSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
